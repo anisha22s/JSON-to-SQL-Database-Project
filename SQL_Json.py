@@ -23,7 +23,7 @@ warnings.filterwarnings("ignore")
 #This is the Apache Hadoop Github Repo's contributors’ endpoint. Extract the JSON corresponding
 # to the first 100 contributors from this API. (Hint: the API request is a GET request and the 
 #variable name that handles the items per page is "per_page").  Write Java or Python code that does all this.
-token = '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'
+token = '################'
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 
     'Authorization': 'token ' + token
