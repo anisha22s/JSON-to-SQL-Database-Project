@@ -5,8 +5,8 @@ Created on Sun Feb 19 15:29:06 2023
 
 @author: leenasamant
 """
-#Question 1
-#Go to https://api.github.com Links to an external site. and familiarize yourself with the API.
+
+
 
 
 import pandas as pd
@@ -18,11 +18,10 @@ from prettytable import PrettyTable
 import textwrap
 warnings.filterwarnings("ignore")
 
-#Question 2
-# 2. Go to https://api.github.com/repos/apache/hadoop/contributors Links to an external site. . 
+
+#  Go to https://api.github.com/repos/apache/hadoop/contributors Links to an external site. . 
 #This is the Apache Hadoop Github Repo's contributors’ endpoint. Extract the JSON corresponding
-# to the first 100 contributors from this API. (Hint: the API request is a GET request and the 
-#variable name that handles the items per page is "per_page").  Write Java or Python code that does all this.
+# to the first 100 contributors from this API. 
 token = '################'
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36', 
@@ -39,8 +38,8 @@ contributors_json = response.json()
 # confirming 100 contributors extracted
 print("Succesfully extract %s contributors extract from Github API." % len(contributors_json))
 
-#Question 3
-# For each of the 100 contributors extracted in (2), write code that accesses their user 
+
+# For each of the 100 contributors extracted in (2),  code that accesses their user 
 #information and extracts "login", "id", "location", "email", "hireable", "bio", "twitter_username",
 # "public_repos", "public_gists", "followers", "following", "created_at" (and print those to screen)
 
@@ -64,10 +63,9 @@ for contributor in contributors_json:
     print("--------------------------------------------------------------------------------------")
     
 
-#Question 4
-#Write code that creates an SQL database + table, and stores all the information obtained in (3)
-#in it.  Please be cautious of the data type you choose for each collumn and briefly justify 
-#your decisions.  What do you choose as Primary Key and why?
+
+# code that creates an SQL database + table, and stores all the information obtained in (3)
+#in it.  
 DBHOST = 'localhost'
 DBUSER = 'root'
 DBPASS = '########'
@@ -170,9 +168,8 @@ except pymysql.Error as e:
 
 print("I have selected 'id' as the primary key. It is a unique identifier for each user, ensuring that each row in the table represents a distinct user.  Secondly, the 'id' attribute is of the integer data type, which is ideal for use as a primary key. Also, 'id' as the primary key will make it more convenient to join with other tables in the future when new tables are added to the database.")
 
-#Question 5. Optimize your code in (4) to allow for quick look-ups of "login", "location", 
-#and "hireable".  I.e., I would like, for example, to run the command  <<  SELECT * FROM table
-# WHERE location = "Tokyo"  >>  fast.  What choices do you make and why?
+#Optimize your code in (4) to allow for quick look-ups of "login", "location", 
+#and "hireable". 
 
 
 def get_rows_with_login_location_hireable(login = None, location = None, hireable = None):
