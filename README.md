@@ -1,5 +1,3 @@
-# SQL-database-with-code Extracting Json from an api and then creating a sql database and store the extracted information as a table
-
 # **JSON to SQL Database Project**
 
 This project extracts data from the GitHub API in JSON format, and stores it in a MySQL database in the form of a table.
